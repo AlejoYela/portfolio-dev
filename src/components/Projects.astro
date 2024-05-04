@@ -1,0 +1,56 @@
+---
+import ReactIcon from "../components/icons/ReactIcon.astro";
+import BootstrapIcon from "../components/icons/BootstrapIcon.astro";
+
+const TAGS = {
+    REACT: {
+        name: "React.js",
+        class: "bg-black text-white",
+        icon: ReactIcon,
+    },
+
+    BOOTSTRAP: {
+        name: "Bootstrap CSS",
+        class: "bg-black text-white",
+        icon: BootstrapIcon,
+    },
+};
+
+const PROJECTS = [
+    {
+        title: "Biu Cosmetics - Frontend e-commerce web application",
+        description:
+            "BiU Cosmetics es una aplicación web frontend de demostración construida usando React, React Bootstrap y Bootstrap 5.3. Interfaz intuitiva, rápida y funcional.",
+        link: "https://svgl.vercel.app/",
+        github: "https://github.com/AlejoYela/Bi-U-e-commerce",
+        image: "/projects/biu.webp",
+        tags: [TAGS.REACT, TAGS.BOOTSTRAP],
+    },
+];
+---
+
+{
+    PROJECTS.map(({ image, title, description, tags }) => (
+        <article>
+            <h3 class="text-2xl font-semibold text-yellow-200 mb-3">{title}</h3>
+            <p class="text-lg mb-4 text-pretty">{description}</p>
+            <ul class="flex flex-row mb-2 gap-x-2">
+                {tags.map((tag) => (
+                    <li>
+                        <span
+                            class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                        >
+                            <tag.icon class="size-4" />
+                            {tag.name}
+                        </span>
+                    </li>
+                ))}
+            </ul>
+            <img
+                class="rounded shadow-white/10"
+                src={image}
+                alt="Captura de pantalla del proyecto"
+            />
+        </article>
+    ))
+}
