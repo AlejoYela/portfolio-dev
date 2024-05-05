@@ -1,0 +1,55 @@
+---
+const personalImageAlt = "Miguel Ángel"
+import Badge from "../components/Badge.astro"
+import LinkedInIcon from "../components/icons/LinkedInIcon.astro"
+import GithubIcon from "./icons/GithubIcon.astro"
+import MailIcon from "../components/icons/MailIcon.astro"
+import SocialPill from "../components/SocialPill.astro"
+---
+
+<div class="max-w-xl">
+  <div class="flex gap-4 mb-4">
+    <div class="relative">
+      <img class="size-16 rounded-full" src="/images/foto-aayb.png" alt="">
+      <span class="bottom-0 left-11 absolute  w-3.5 h-3.5 bg-green-400 border-2 border-white dark:border-gray-800 rounded-full"></span>
+  </div>
+
+    <a
+      href="https://linkedin.com/in/midudev"
+      target="_blank"
+      rel="noopener"
+      class="flex items-center transition md:justify-center md:hover:scale-105"
+    >
+      <Badge>Disponible para trabajar</Badge>
+    </a>
+  </div>
+  <h1
+    class="text-4xl font-bold tracking-tight text-white sm:text-5xl"
+  >
+    Hola, soy Alejandro
+  </h1>
+  <p
+    class="mt-6 text-xl [&>strong]:text-blue-300 [&>strong]:font-semibold text-gray-300"
+  >
+    +3 años de experiencia. 
+    <strong>
+      Ingeniero Biomédico y de Software.
+    </strong> 
+    De Colombia 🇨🇴. Especializado en aplicaciones clínicas, estadísticas y
+    metrológicas.
+  </p>
+  <nav class="flex flex-wrap gap-4 mt-8">
+    <SocialPill href="mailto:andres.alejo.yela@gmail.com">
+      <MailIcon class="size-4" />
+      Contáctame
+    </SocialPill>
+    <SocialPill href="https://www.linkedin.com/in/alejandro-yela/">
+      <LinkedInIcon class="size-4" />
+      LinkedIn
+    </SocialPill>
+    <SocialPill href="https://github.com/AlejoYela">
+      <GithubIcon class="size-4" />
+      Github
+    </SocialPill>
+  </nav>
+</div>

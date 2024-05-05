@@ -4,28 +4,52 @@ import ExperienceItem from "./ExperienceItem.astro"
 const EXPERIENCIE = [
   {
     date: "Actualmente...",
-    title: "Creador de Contenido",
-    company: "Twitch",
+    title: "Ingeniero Metrólogo",
+    company: "SENA",
     description:
-      "Divulgo sobre programación y desarrollo web en diferentes plataformas. Galardonado como mejor creador de contenido de habla no-inglesa en 2022 y mejor comunidad en 2023 por GitHub.",
-    link: "https://twitch.tv/midudev",
+      "Optimicé la validación de resultados con Python y R, agilizando los procesos de ensayo y calibración. Desarrollé documentación técnica y administrativa de alta calidad. Realicé acciones que fortalecieron la confiabilidad de nuestros equipos y ensayos, mejorando la eficiencia del laboratorio.",
+    link: "https://industriaempresayservicios.blogspot.com/p/servicios-tecnologicos.html",
   },
   {
-    date: "Septiembre 2022",
-    title: "Principal Frontend Engineer",
-    company: "Adevinta Spain",
+    date: "Noviembre 2022",
+    title: "Ingeniero Biomédico y de Software",
+    company: "I.P.S Cuaspud Carlosama",
     description:
-      "Responsable de la plataforma, componentes y utilidades para la creación y desarrollo de aplicaciones web. Mejora de un 30% en la entrega de software. Implantación de medidas de integración continua y despliegue con A/B testing en más de 15 equipos.",
+      "Desarrollé y implementé software para la digitalización de bases de datos biomédicas, automatizando la generación de informes en C# .NET. Mejoré la eficiencia del mantenimiento hospitalario y gestioné la documentación de equipos biomédicos, capacitando al personal.",
+    link: "https://ipsindigenadecarlosama.com/"
+  },
+  {
+    date: "Agosto 2022",
+    title: "Ingeniero Metrólogo",
+    company: "Precisión Biomédica S.A.S",
+    description:
+    "Aseguré la precisión de resultados con Python y R. Calibré equipos biomédicos y de laboratorio en Nariño. Validé equipos de temperatura y certifiqué su calibración. También, capacitación de personal.",
+  },
+  {
+    date: "Enero 2022",
+    title: "Ingeniero Biomédico y de Software",
+    company: "E.S.E Cuaspud Carlosama",
+    description:
+      "Desarrollé y desplegué software para gestionar datos de equipos biomédicos en C# .NET. Supervisé inventarios y mantenimiento, mejorando la eficiencia hospitalaria. Apoyé en la gestión de residuos hospitalarios.",
+    link: "http://www.esecuaspudcarlosama-narino.gov.co/"
+  },
+  {
+    date: "Enero 2020",
+    title: "Técnico Biomédico y de Software",
+    company: "Simtecol LTDA",
+    description:
+      "Desarrollé y desplegué software en C# .NET para digitalizar y estructurar bases de datos de equipos biomédicos. Supervisé la verificación de calibración, mantenimiento y gestión de inventario y documentación de equipos biomédicos",
   },
 ]
 ---
 
-<ol class="relative border-s border-gray-200 ml-3">   
-    {EXPERIENCIE.map(experience =>(
-        <li class="mb-10 ms-4">
-            <ExperienceItem {...experience} />
-        </li>
-    ))}               
-    
+<ol class="relative mt-16">
+  {
+    EXPERIENCIE.map((experiencie) => (
+      <li class="">
+        <ExperienceItem {...experiencie} />
+      </li>
+    ))
+  }
 </ol>
 

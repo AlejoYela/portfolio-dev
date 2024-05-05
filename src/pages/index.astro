@@ -1,80 +1,48 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Badge from "../components/Badge.astro";
-import LinkedInIcon from "../components/icons/LinkedInIcon.astro";
-import GithubIcon from "../components/icons/GithubIcon.astro";
-import MailIcon from "../components/icons/MailIcon.astro";
-import SocialPill from "../components/SocialPill.astro";
 import Experience from "../components/Experience.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import BriefCaseIcon from "../components/icons/BriefCaseIcon.astro";
+import ProfileCheckIcon from "../components/icons/ProfileCheckIcon.astro"
 import CodeIcon from "../components/icons/CodeIcon.astro";
 import Projects from "../components/Projects.astro";
+import Hero from "../components/Hero.astro";
+import AboutMe from "../components/AboutMe.astro";
 ---
 
 <Layout title="Portfolio de Alejandro Yela, Ingeniero Biomédico y de Software.">
 	<main class="px-4">
-		<SectionContainer class="py-44 pb-32">
-			<img
-				class="rounded-full size-12 mb-4"
-				src="/images/foto-aayb.png"
-				alt="Alejo foto"
-			/>
-			<h1
-				class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10"
-			>
-				Hey, soy Alejandro
-				<a
-					class="flex justify-center items-center"
-					href="https://www.linkedin.com/in/alejandro-yela/"
-					target="_blank"
-					rel="noopener"
-				>
-					<Badge>Disponible para trabajar</Badge>
-				</a>
-			</h1>
-			<h2 class=" text-xl lg:text-2xl text-wrap max-w-[700px]">
-				<span>+3 años de experiencia.</span>
-				<span class="text-yellow-200/90"
-					>Ingeniero Biomédico y de Software.</span
-				>
-				<span class="text-blue-200/90">De Colombia.</span>
-				<span class="text-red-200/90"
-					>Especializado en aplicaciones clínicas, estadísticas y
-					metrológicas</span
-				>
-			</h2>
-
-			<nav class="flex gap-4 mt-8 flex-wrap">
-				<SocialPill href="https://www.linkedin.com/in/alejandro-yela/">
-					<LinkedInIcon class="size-4 md:size-6" />
-					LinkedIn
-				</SocialPill>
-				<SocialPill href="https://github.com/AlejoYela">
-					<GithubIcon class="size-4 md:size-6" />
-					LinkedIn
-				</SocialPill>
-				<SocialPill href="https://github.com/AlejoYela">
-					<MailIcon class="size-4 md:size-6" />
-					andres.alejo.yela@gmail.com
-				</SocialPill>
-			</nav>
+		<SectionContainer class="py-16 md:py-36">
+			<Hero />
+			<slot />
 		</SectionContainer>
-
+		<div class="space-y-24">
 		<SectionContainer id="experiencia">
 			<h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
-				<BriefCaseIcon class="size-7"/>
+				<BriefCaseIcon class="size-7" />
 				Experiencia laboral
 			</h2>
 			<Experience />
 		</SectionContainer>
 
-		<SectionContainer id="experiencia">
-			<h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
-				<CodeIcon class="size-7"/>
+		<SectionContainer id="proyectos">
+			<h2
+			class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
+			>
+				<CodeIcon class="size-7" />
 				Proyectos
 			</h2>
-			<Projects/>
+			<Projects />
 		</SectionContainer>
+
+		<SectionContainer id="sobre-mi">
+			<h2
+			  class="flex items-center mb-6 text-3xl font-semibold gap-x-8 text-black/80 dark:text-white"
+			>
+			  <ProfileCheckIcon class="size-8" />
+			  Sobre mí
+			</h2>
+			<AboutMe />
+		  </SectionContainer>
 	</main>
 </Layout>

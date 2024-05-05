@@ -1,6 +1,12 @@
 ---
 import ReactIcon from "../components/icons/ReactIcon.astro";
 import BootstrapIcon from "../components/icons/BootstrapIcon.astro";
+import LinkIcon from "./icons/LinkIcon.astro"
+import LinkButton from "./LinkButton.astro"
+import GithubIcon from "./icons/GithubIcon.astro";
+import CSharpIcon from "./icons/CSharpIcon.astro";
+import ExpressIcon from "./icons/ExpressIcon.astro";
+import NodeIcon from "./icons/NodeIcon.astro";
 
 const TAGS = {
     REACT: {
@@ -14,43 +20,119 @@ const TAGS = {
         class: "bg-black text-white",
         icon: BootstrapIcon,
     },
+    NODE: {
+        name: "Node.js",
+        class: "bg-black text-white",
+        icon: NodeIcon,
+    },
+    CSHARP: {
+        name: "C#",
+        class: "bg-black text-white",
+        icon: CSharpIcon,
+    },
+    EXPRESS: {
+        name: "Express.js",
+        class: "bg-black text-white",
+        icon: ExpressIcon,
+    },
 };
 
 const PROJECTS = [
     {
-        title: "Biu Cosmetics - Frontend e-commerce web application",
+        title: "Biu Cosmetics",
         description:
-            "BiU Cosmetics es una aplicación web frontend de demostración construida usando React, React Bootstrap y Bootstrap 5.3. Interfaz intuitiva, rápida y funcional.",
+            "BiU Cosmetics es una aplicación web frontend de tienda virtual de maquillaje y skincare. Con funcionalidad completa, integra filtros, autenticación de usuario, sistema de pagos, interfaz intuitiva y rápida.",
         link: "https://svgl.vercel.app/",
         github: "https://github.com/AlejoYela/Bi-U-e-commerce",
         image: "/projects/biu.webp",
         tags: [TAGS.REACT, TAGS.BOOTSTRAP],
     },
+    {
+        title: "Biu API",
+        description:
+            "BiU API es la aplicación web backend de la tienda virtual de maquillaje y skincare Biu Cosmetics. Endpoints GET, POST, PATCH. Integración con base de datos de productos",
+        link: "https://svgl.vercel.app/",
+        github: "https://github.com/AlejoYela/Biu-API",
+        image: "/projects/api.webp",
+        tags: [TAGS.NODE, TAGS.EXPRESS],
+    },
+    {
+        title: "SST-SoftPro",
+        description:
+            "Sistema de Gestión de Documentación de Historias clínicas y Generación de Certificados Médico Laborales. Integra bases de datos nacionales (CIE10) actualizadas y completas.",
+        link: "https://svgl.vercel.app/",
+        github: "https://github.com/AlejoYela/SST-SoftPro",
+        image: "/projects/sst.webp",
+        tags: [TAGS.CSHARP],
+    },
+    {
+        title: "GDB",
+        description:
+            "Sistema de Gestión de Documentación de Equipos Biomédicos. Registra el historial de mantenimiento, reparación y fallos de equipos en hospitales. Integra una base de datos actualizada y completa.",
+        link: "https://alejoyela.github.io/GDB-LANDPAGE/",
+        github: "https://github.com/AlejoYela/GDB",
+        image: "/projects/gdb.webp",
+        tags: [TAGS.CSHARP],
+    },
+    {
+        title: "Rick and morty app",
+        description:
+            "Aplicación web frontend de práctica que permite buscar y mostrar dinámicamente los personajes de la serie Rick & Morty provenientes de la conocida API. Integra validación de usuario, uso de contexto global, etc",
+        link: "https://alejoyela.github.io/GDB-LANDPAGE/",
+        github: "https://github.com/AlejoYela/rick-and-morty-app",
+        image: "/projects/rym.webp",
+        tags: [TAGS.REACT],
+    },
 ];
 ---
 
-{
-    PROJECTS.map(({ image, title, description, tags }) => (
-        <article>
-            <h3 class="text-2xl font-semibold text-yellow-200 mb-3">{title}</h3>
-            <p class="text-lg mb-4 text-pretty">{description}</p>
-            <ul class="flex flex-row mb-2 gap-x-2">
-                {tags.map((tag) => (
-                    <li>
-                        <span
-                            class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
-                        >
-                            <tag.icon class="size-4" />
-                            {tag.name}
-                        </span>
-                    </li>
-                ))}
-            </ul>
-            <img
-                class="rounded shadow-white/10"
-                src={image}
-                alt="Captura de pantalla del proyecto"
-            />
-        </article>
-    ))
-}
+<div class="flex flex-col gap-y-16">
+    {
+      PROJECTS.map(({ image, title, description, tags, link, github }) => (
+      <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+    <div class="w-full md:w-1/2">
+      <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+        <img alt="Recién llegado vs 5 años en Nueva Zelanda" class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" loading="lazy" src={image} />
+      </div>
+    </div>
+  
+    <div class="w-full md:w-1/2 md:max-w-lg">
+      <h3 class="text-2xl font-bold text-gray-100">
+        {title}
+      </h3>
+      <div class="flex flex-wrap mt-2">
+        <ul class="flex flex-row mb-2 gap-x-2">
+            {tags.map((tag) => (
+              <li>
+                <span
+                  class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                >
+                  <tag.icon class="size-4" />
+                  {tag.name}
+                </span>
+              </li>
+            ))}
+          </ul>
+  
+        <div class="mt-2 text-gray-400">{description}</div>
+        <footer class="flex items-end justify-start mt-4 gap-x-4">
+            {github && (
+              <LinkButton href={github}>
+                <GithubIcon class="size-6" />
+                Code
+                
+              </LinkButton>
+            )}
+            {link && (
+              <LinkButton href={link}>
+                <LinkIcon class="size-4" />
+                Preview
+              </LinkButton>
+            )}
+          </footer>
+      </div>
+    </div>
+  </article>
+      ))
+    }
+  </div>
